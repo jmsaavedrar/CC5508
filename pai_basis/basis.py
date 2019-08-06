@@ -53,11 +53,12 @@ def get_threshold_otsu(gray_im):
 #equalization
 def equalize_image(gray_im):
     h=get_histogram(gray_im)
-    accum=get_accum(h/np.float(gray_im.shape[0]*gray_im.shape[1]))
-    imeq=np.zeros(gray_im.shape)
+    h = h / np.float(gray_im.shape[0]*gray_im.shape[1])
+    accum=get_accum(h)
+    imeq=np.zeros(gray_im.shape, np.float32)
     for i in range(imeq.shape[0]):
-        for j in range(imeq.shape[1]):
-            imeq[i,j]=255*accum[gray_im[i,j]]
+        for j in range(imeq.shape[1]):            
+            imeq[i,j]=255.0*accum[gray_im[i,j]]
     return to_uint8(imeq)
 
 #gaussian  2D

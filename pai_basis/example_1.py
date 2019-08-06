@@ -13,7 +13,7 @@ if __name__ == '__main__':
     print('shape: {}'.format(image.shape))
     
     ##showing image
-    plt.imshow(image, cmap = 'gray')
+    plt.imshow (image, cmap = 'gray')
     plt.title('image')
     plt.axis('off')
     plt.show()

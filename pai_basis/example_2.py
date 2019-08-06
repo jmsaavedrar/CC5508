@@ -9,7 +9,7 @@ import pai_io
 import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    filename = '../images/color/rgb_frame.png' 
+    filename = '../images/color/fichas.jpg' 
     image = pai_io.imread(filename)
     print('shape: {}'.format(image.shape))
     im_red = image[:,:,0];
