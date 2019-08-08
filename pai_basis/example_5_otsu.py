@@ -10,7 +10,7 @@ import basis
 import pai_io
 
 if __name__ == '__main__' :
-    filename ='../images/gray/rice.jpg'
+    filename ='../images/gray/ten_coins.png'
     image=pai_io.imread(filename, as_gray = True)
     th = image.max() * 0.5
     th_otsu = basis.get_threshold_otsu(image)    
