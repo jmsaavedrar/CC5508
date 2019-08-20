@@ -11,7 +11,7 @@ import skimage.measure as measure
 import matplotlib.pyplot as plt
 import scipy.ndimage.morphology as morph 
 if __name__ == '__main__' :
-    filename ='../images/gray/ten_coins.png'
+    filename ='../images/gray/rice.jpg'
     image=pai_io.imread(filename, as_gray = True)
     #image processing
     th_otsu = basis.get_threshold_otsu(image)
