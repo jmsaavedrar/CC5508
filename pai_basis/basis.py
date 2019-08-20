@@ -91,3 +91,10 @@ def to_uint8(image) :
     image = image.astype(np.uint8, copy=False)
     return image
 
+def addGaussianNoise(image, std):
+    noise = np.random.normal(loc = 0, scale = std, size = image.shape) 
+    noisy_image = image + noise
+    noisy_image[image < 0] = 0
+    noisy_image[image > 255] = 255
+    return noisy_image.astype(np.uint8);
+     
