@@ -4,6 +4,7 @@ A set of basic functions to operate on gray-scale images
 @author: jsaavedr
 '''
 import numpy as np
+import scipy.ndimage.filters as nd_filters
 
 #get histogram of an image
 def get_histogram(gray_im):
@@ -63,6 +64,7 @@ def equalize_image(gray_im):
 
 #gaussian  2D
 def get_gaussian2d(sigma, radius):
+    #radius= 3xsigma
     s=np.int(2*radius+1)
     mask=np.zeros([s,s])
     variance=sigma*sigma
@@ -91,10 +93,16 @@ def to_uint8(image) :
     image = image.astype(np.uint8, copy=False)
     return image
 
-def addGaussianNoise(image, std):
+def add_gaussian_noise(image, std):
     noise = np.random.normal(loc = 0, scale = std, size = image.shape) 
     noisy_image = image + noise
     noisy_image[image < 0] = 0
     noisy_image[image > 255] = 255
     return noisy_image.astype(np.uint8);
-     
+
+def get_borde(image, gx_kernel):    
+    gy_kernel = np.transpose(gx_kernel)
+    gx = nd_filters.convolve(image.astype(np.float32), gx_kernel, mode='constant', cval=0)    
+    gy = nd_filters.convolve(image.astype(np.float32), gy_kernel, mode='constant', cval=0)
+    borde = np.sqrt(gx**2 + gy**2)
+    return borde

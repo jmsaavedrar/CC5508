@@ -14,8 +14,8 @@ import pai_io
 if __name__ == '__main__' :
     filename ='../images/gray/lenna_gray.png'
     image=pai_io.imread(filename, as_gray = True)    
-    noisy_image = basis.addGaussianNoise(image, 10)
-    g_kernel = basis.get_gaussian2d(1, 5)
+    noisy_image = basis.add_gaussian_noise(image, 20)
+    g_kernel = basis.get_gaussian2d(1, 3)
     image_g = nd_filters.convolve(image, g_kernel, mode='constant', cval=0)     
     fig, xs = plt.subplots(1,3)
     for i in range(3):

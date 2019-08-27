@@ -14,7 +14,7 @@ if __name__ == '__main__' :
     
     filename ='../images/gray/rice.jpg'
     image=pai_io.imread(filename, as_gray = True)
-    g_kernel = basis.get_gaussian2d(3, 9)
+    g_kernel = basis.get_gaussian2d(10, 30)
     image_g = nd_filters.convolve(image, g_kernel, mode='constant', cval=0)
     fig, xs = plt.subplots(1,3)
     for i in range(3):
