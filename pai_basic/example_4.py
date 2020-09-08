@@ -10,9 +10,10 @@ import utils
 import pai_io
 
 if __name__ == '__main__' :
-    filename ='../images/gray/rice.jpg'
+    #filename ='../images/gray/rice.jpg'
+    filename ='../images/gray/ten_coins.png'
     image=pai_io.imread(filename)
-    th = 100
+    th =100
     #th = image.max() * 0.5
     print('th = {}'.format(th))
     bin_image = utils.threshold(image, th)    

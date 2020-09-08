@@ -30,7 +30,7 @@ if __name__ == '__main__':
     ax[1,1].imshow(im_green, cmap = 'gray')
     ax[1,1].set_title('Green')
     ax[1,2].imshow(im_yellow, cmap = 'gray')
-    ax[1,2].set_title('Blue')
+    ax[1,2].set_title('Yellow')
     for i in range(2) :
         for j in range(3) :
             ax[i,j].set_axis_off()

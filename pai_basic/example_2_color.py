@@ -26,7 +26,7 @@ if __name__ == '__main__':
     ax[1,0].set_title('Red')
     ax[1,1].imshow(im_green, cmap = 'gray')
     ax[1,1].set_title('Green')
-    ax[1,2].imshow(im_green, cmap = 'gray')
+    ax[1,2].imshow(im_blue, cmap = 'gray')
     ax[1,2].set_title('Blue')
     for i in range(n_rows) :
         for j in range(n_cols) :
