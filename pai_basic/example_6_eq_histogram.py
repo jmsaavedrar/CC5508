@@ -12,8 +12,10 @@ import numpy as np
 
 if __name__ == '__main__' :
     #filename ='../images/gray/im_3.tif'
-    filename = '../images/gray/Lowcontr.tif'
-    image=pai_io.imread(filename, as_gray = True)
+    filename ='../images/gray/mri.tif'
+    #filename = '../images/gray/Lowcontr.tif'
+    #filename = '../images/gray/low_contraste_1.jpg'
+    image=pai_io.imread(filename, as_gray = True)    
     h = utils.get_histogram(image)
     im_eq = utils.equalize_image(image)
     h_eq = utils.get_histogram(im_eq)        

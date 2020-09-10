@@ -6,18 +6,19 @@ Otsu
 '''
 
 import matplotlib.pyplot as plt
-import basis
+import utils
 import pai_io
 import skimage.exposure as exposure
 import numpy as np
 
 if __name__ == '__main__' :
-    #filename ='../images/gray/mri.tif'
+    filename ='../images/gray/mri.tif'
     #filename ='../images/gray/im_3.tif'
-    filename ='../images/gray/Lowcontr.tif'
+    #filename ='../images/gray/im_3.tif'
+    #filename ='../images/gray/Lowcontr.tif'
     image=pai_io.imread(filename, as_gray = True)
-    image_eq = basis.to_uint8(exposure.equalize_hist(image))
-    image_eqa = basis.to_uint8(exposure.equalize_adapthist(image,clip_limit=0.1))
+    image_eq = utils.to_uint8(exposure.equalize_hist(image))
+    image_eqa = utils.to_uint8(exposure.equalize_adapthist(image,clip_limit=0.1))
     fig, xs = plt.subplots(1,3)
     for i in range(3):
         xs[i].set_axis_off()

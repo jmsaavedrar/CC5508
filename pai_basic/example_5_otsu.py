@@ -12,7 +12,7 @@ import pai_io
 if __name__ == '__main__' :
     #filename ='../images/gray/ten_coins.png'
     filename = '../images/gray/rice.jpg'
-    filename = '../images/gray/four_coins.png'
+    #filename = '../images/gray/four_coins.png'
     image=pai_io.imread(filename, as_gray = True)
     th = 100
     th_otsu = utils.get_threshold_otsu(image)    

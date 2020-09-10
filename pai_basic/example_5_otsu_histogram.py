@@ -18,7 +18,7 @@ if __name__ == '__main__' :
     image=pai_io.imread(filename, as_gray = True)    
     th_otsu = utils.get_threshold_otsu(image)        
     print('th_otsu = {}'.format(th_otsu))    
-    bin_image_otsu = utils.threshold(image, th_otsu)
+    bin_image_otsu = 1 - utils.threshold(image, th_otsu)
     h = utils.get_histogram(image)    
     fig, xs = plt.subplots(1,3)
     for i in range(2):
@@ -27,6 +27,6 @@ if __name__ == '__main__' :
     xs[0].set_title('Original')
     xs[1].imshow(bin_image_otsu*255, cmap = 'gray', vmin = 0, vmax = 255)
     xs[1].set_title('Otsu ={}'.format(th_otsu))
-    xs[2].bar(x=np.arange(256), height = h/np.sum(h))
+    xs[2].bar(x=np.arange(256), height = h)
     xs[2].set_title('Histograma'.format(th_otsu))
     plt.show()

@@ -7,18 +7,21 @@ Adaptive Threhsolding
 
 import matplotlib.pyplot as plt
 import skimage.filters as filters
+import skimage.data as images
 import numpy as np
-import basis
+import utils
 import pai_io
 
 if __name__ == '__main__' :
-    filename ='../images/gray/rice.jpg'
-    image=pai_io.imread(filename, as_gray = True)
+    
+    #filename = '../images/gray/car_1.png'
+    #image=pai_io.imread(filename, as_gray = True)
+    image = images.text()    
     print(image.shape)    
     #th_otsu = basis.get_threshold_otsu(image)
-    th_adaptive = filters.threshold_local(image, block_size = 201, offset = 1)
-    th_niblack = filters.threshold_niblack(image, window_size = 201, k=0.2)
-    th_sauvola = filters.threshold_sauvola(image, window_size = 201, k=0.2, r = None)
+    th_adaptive = filters.threshold_local(image, block_size = 21, offset = 15)
+    th_niblack = filters.threshold_niblack(image, window_size = 21, k=0.2)
+    th_sauvola = filters.threshold_sauvola(image, window_size = 21, k=0.2)
     #bin_image_otsu = basis.threshold(image, th_otsu)
     bin_image_adaptive = np.uint8(image > th_adaptive)
     bin_image_niblack = np.uint8(image > th_niblack)
