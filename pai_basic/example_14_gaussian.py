@@ -13,7 +13,8 @@ import pai_io
 
 if __name__ == '__main__' :
     
-    filename ='../images/gray/rice.jpg'
+    #filename ='../images/gray/rice.jpg'
+    filename ='../images/gray/ruido.tif'
     image=pai_io.imread(filename, as_gray = True)
     g_kernel = utils.get_gaussian2d(sigma = 2, radius = 6)    
     image_g = nd_filters.convolve(image, g_kernel, mode='constant', cval=0)
