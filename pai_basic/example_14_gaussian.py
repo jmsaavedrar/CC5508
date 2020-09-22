@@ -7,15 +7,17 @@ Gaussian
 
 import matplotlib.pyplot as plt
 import scipy.ndimage.filters as nd_filters
-import basis
+import numpy as np
+import utils
 import pai_io
 
 if __name__ == '__main__' :
     
     filename ='../images/gray/rice.jpg'
     image=pai_io.imread(filename, as_gray = True)
-    g_kernel = basis.get_gaussian2d(10, 30)
+    g_kernel = utils.get_gaussian2d(sigma = 2, radius = 6)    
     image_g = nd_filters.convolve(image, g_kernel, mode='constant', cval=0)
+    print((g_kernel*100).astype(np.int32) / 100.0)
     fig, xs = plt.subplots(1,3)
     for i in range(3):
         xs[i].set_axis_off()

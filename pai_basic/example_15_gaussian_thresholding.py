@@ -8,13 +8,13 @@ Gaussian + Adaptive Thresholding
 import matplotlib.pyplot as plt
 import scipy.ndimage.filters as nd_filters
 import skimage.filters as filters
-import basis
+import utils
 import pai_io
 
 if __name__ == '__main__' :
     filename ='../images/gray/rice.jpg'
     image=pai_io.imread(filename, as_gray = True)
-    g_kernel = basis.get_gaussian2d(2, 6)
+    g_kernel = utils.get_gaussian2d(2, 6)
     image_g = nd_filters.convolve(image, g_kernel, mode='constant', cval=0)
     th_adaptive = filters.threshold_local(image_g, block_size = 255, offset = -5)
     image_bin = (image_g > th_adaptive)     

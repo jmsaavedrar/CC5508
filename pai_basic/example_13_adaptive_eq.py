@@ -18,7 +18,7 @@ if __name__ == '__main__' :
     #filename ='../images/gray/Lowcontr.tif'
     image=pai_io.imread(filename, as_gray = True)
     image_eq = utils.to_uint8(exposure.equalize_hist(image))
-    image_eqa = utils.to_uint8(exposure.equalize_adapthist(image,clip_limit=0.1))
+    image_eqa = utils.to_uint8(exposure.equalize_adapthist(image,clip_limit=1   ))
     fig, xs = plt.subplots(1,3)
     for i in range(3):
         xs[i].set_axis_off()
