@@ -4,10 +4,8 @@ Created on Aug 6, 2019
 @author: jsaavedr
 Filtro Mediana
 '''
-
 import matplotlib.pyplot as plt
 import scipy.ndimage.filters as nd_filters
-import basis
 import pai_io
 import numpy as np
 
@@ -18,9 +16,10 @@ if __name__ == '__main__' :
     image=pai_io.imread(filename, as_gray = True)
     gx_kernel = np.array([[0,-1,1]])
     gy_kernel = np.transpose(gx_kernel)
-    gx = nd_filters.convolve(image.astype(np.float32), gx_kernel, mode='constant', cval=0)    
-    gy = nd_filters.convolve(image.astype(np.float32), gy_kernel, mode='constant', cval=0)
+    gx = nd_filters.convolve(image.astype(np.float32), gx_kernel, mode='reflect')    
+    gy = nd_filters.convolve(image.astype(np.float32), gy_kernel, mode='reflect')
     borde = np.sqrt(gx**2 + gy**2)
+    #borde = np.abs(gx) + np.abs(gy)
     borde = 1 - borde/np.max(borde)        
     fig, xs = plt.subplots(1,2)
     for i in range(2):

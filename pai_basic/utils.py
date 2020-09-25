@@ -102,10 +102,10 @@ def add_gaussian_noise(image, std):
     noisy_image[image > 255] = 255
     return noisy_image.astype(np.uint8);
 
-def get_borde(image, gx_kernel):    
+def get_magnitude(image, gx_kernel):    
     gy_kernel = np.transpose(gx_kernel)
-    gx = nd_filters.convolve(image.astype(np.float32), gx_kernel, mode='constant', cval=0)    
-    gy = nd_filters.convolve(image.astype(np.float32), gy_kernel, mode='constant', cval=0)
+    gx = nd_filters.convolve(image.astype(np.float32), gx_kernel, mode='reflect')    
+    gy = nd_filters.convolve(image.astype(np.float32), gy_kernel, mode='reflect')
     borde = np.sqrt(gx**2 + gy**2)
     return borde
 
@@ -120,6 +120,7 @@ def set_image_on_lsb(gray_image, bin_image):
     gray_image[bin_image == 0] = (gray_image[bin_image == 0] >> 1) << 1  
     gray_image[bin_image == 1] = ((gray_image[bin_image == 1] >> 1) << 1) + 1
     return gray_image
+    
     
     
     
