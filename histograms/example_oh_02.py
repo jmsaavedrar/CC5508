@@ -1,16 +1,18 @@
 import sys
-sys.path.append('../pai_basis')
-import basis
+sys.path.append('../pai_basic')
+import utils
 import pai_io
 import orientation_histograms as oh
 import matplotlib.pyplot as plt
 import numpy as np
  
-if __name__ == '__main__' :
-    #filename = '../images/gray/im_34.png'
-    #filename = '../images/gray/im_2.tif'
-    filenameA = '../images/gray/elephant.jpg'
-    filenameB = '/home/jsaavedr/Documents/Datasets/SBIR/dataset_1/BD_2/chair/180016.jpg'
+if __name__ == '__main__' :    
+    #filenameA = '../images/digits/digit_mnist_00100_9.png'
+    #filenameB = '../images/digits/digit_mnist_00059_9.png'    
+    #filenameB = '../images/digits/digit_mnist_00376_5.png'
+    filenameA = '../images/digits/digit_mnist_00011_0.png'
+    filenameB = '../images/digits/digit_mnist_00381_0.png'
+    #filenameB = '../images/digits/digit_mnist_00376_5.png'
     imageA = pai_io.imread(filenameA, as_gray = True)
     imageB = pai_io.imread(filenameB, as_gray = True)
     K = 36
