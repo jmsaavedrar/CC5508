@@ -12,9 +12,9 @@ import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
     #filename = '../images/gray/lion_gray.jpg'
-    filename = '../images/color/fichas.jpg'
-    image = pai_io.imread(filename, as_gray = True)
-    print(image[100:150, 10::150]) 
+    filename = '../images/color/rgb.png'
+    image = pai_io.imread(filename)
+    print(image) 
     print('shape: {} dtype: {}'.format(image.shape, image.dtype))
     ##showing image
     plt.imshow (image, cmap = 'gray')

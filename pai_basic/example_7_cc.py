@@ -3,7 +3,7 @@ Created on Aug 7, 2019
 
 @author: jsaavedr
 '''
-import basis
+import utils
 import pai_io
 import bw
 import skimage.measure as measure
@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 if __name__ == '__main__' :
     filename ='../images/gray/ten_coins.png'
     image=pai_io.imread(filename, as_gray = True)
-    th_otsu = basis.get_threshold_otsu(image)
-    bin_image = basis.threshold(image, th_otsu)
+    th_otsu = utils.get_threshold_otsu(image)
+    bin_image = utils.threshold(image, th_otsu)
     print(bin_image.shape)
     label, num = measure.label(bin_image, return_num = True)
     

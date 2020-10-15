@@ -9,11 +9,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    filename = '../images/color/rgb_cube.png' 
-    #filename = '../images/color/fichas.jpg'
+    #filename = '../images/color/rgb_cube.png' 
+    filename = '../images/color/fichas.jpg'
     image = pai_io.imread(filename)
     print('shape: {}'.format(image.shape))
-    im_red = image[:,:,0];
+    im_red = image[:,:,0]; #filas x cols x color
     im_green = image[:,:,1];
     im_blue = image[:,:,2];    
     ##showing image

@@ -12,8 +12,8 @@ import pai_io
 import numpy as np
 
 if __name__ == '__main__' :
-    filename ='../images/gray/elephant.jpg'
-    #filename ='../images/gray/chair_gray.jpg'
+    #filename ='../images/gray/elephant.jpg'
+    filename ='../images/gray/chair_gray.jpg'
     image=pai_io.imread(filename, as_gray = True)
     #g_kernel = basis.get_gaussian2d(2, 6);
     #g_image = nd_filters.convolve(image.astype(np.float32), g_kernel, mode='constant', cval=0)
@@ -28,15 +28,23 @@ if __name__ == '__main__' :
     gx_sobel = np.array([[-1,0,1], [-2,0,2],[-1,0,1]])    
     borde_sobel = utils.get_magnitude(image_g, gx_sobel)
     borde_sobel = 1 - borde_sobel/np.max(borde_sobel)        
-    fig, xs = plt.subplots(1,3)
-    for i in range(3):
+#     fig, xs = plt.subplots(1,3)
+#     for i in range(3):
+#         xs[i].set_axis_off()
+#     xs[0].imshow(image, cmap = 'gray', vmin = 0, vmax = 255)
+#     xs[0].set_title('Image')
+#     xs[1].imshow(borde, cmap = 'gray')
+#     xs[1].set_title('Basico')
+#     xs[2].imshow(borde_sobel, cmap = 'gray')
+#     xs[2].set_title('Sobel')
+#     plt.show()
+    
+    fig, xs = plt.subplots(1,2)
+    for i in range(2):
         xs[i].set_axis_off()
     xs[0].imshow(image, cmap = 'gray', vmin = 0, vmax = 255)
-    xs[0].set_title('Image')
-    xs[1].imshow(borde, cmap = 'gray')
-    xs[1].set_title('Basico')
-    xs[2].imshow(borde_sobel, cmap = 'gray')
-    xs[2].set_title('Sobel')
+    xs[0].set_title('Image')    
+    xs[1].imshow(borde_sobel, cmap = 'gray')
+    xs[1].set_title('Sobel')
     plt.show()
-    
     

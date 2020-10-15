@@ -4,7 +4,7 @@ Created on Aug 8, 2019
 @author: jsaavedr
 '''
 
-import basis
+import utils
 import pai_io
 import bw
 import skimage.measure as measure
@@ -14,8 +14,8 @@ if __name__ == '__main__' :
     filename ='../images/gray/rice.jpg'
     image=pai_io.imread(filename, as_gray = True)
     #image processing
-    th_otsu = basis.get_threshold_otsu(image)
-    bin_image = basis.threshold(image, th_otsu)
+    th_otsu = utils.get_threshold_otsu(image)
+    bin_image = utils.threshold(image, th_otsu)
     cc_list = bw.get_ccomponents(bin_image)
     cc_list = bw.remove_small_components(cc_list, 50)    
     bin_image1 = bw.cc2image(cc_list, image.shape)

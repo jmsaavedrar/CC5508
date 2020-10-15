@@ -12,10 +12,11 @@ import numpy as np
 
 if __name__ == '__main__' :
     #filename ='../images/gray/lenna_gray_noisy.png'
-    filename = '..//images/gray/ruido.tif'
+    filename = '../images/gray/car_2.png'
+    #filename = '../images/gray/ruido.tif'
     image = pai_io.imread(filename, as_gray = True)    
     image_1 = image
-    image_1 = restor.denoise_tv_chambolle(image, 0.5)            
+    image_1 = restor.denoise_tv_chambolle(image, 0.05)            
     fig, xs = plt.subplots(1,2)
     for i in range(2):
         xs[i].set_axis_off()
