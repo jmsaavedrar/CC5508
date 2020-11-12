@@ -12,7 +12,8 @@ import matplotlib.patches as patches
 import scipy.ndimage.morphology as morph
  
 if __name__ == '__main__' :
-    filename ='../images/gray/ten_coins.png'
+    #filename ='../images/gray/ten_coins.png'
+    filename = '/home/jsaavedr/Downloads/binary.png'
     image=pai_io.imread(filename, as_gray = True)
     #image processing
     th_otsu = utils.get_threshold_otsu(image)
@@ -22,12 +23,13 @@ if __name__ == '__main__' :
     bin_image1 = bw.cc2image(cc_list, image.shape)
     bin_image1 = morph.binary_fill_holes(bin_image1)
     cc_list = bw.get_ccomponents(bin_image1)
+    image1 =bw.cc2image(cc_list, bin_image1.shape, type='boundary')
     fig, xs = plt.subplots(1,2)
     for i in range(2):
         xs[i].set_axis_off()
     xs[0].imshow(image, cmap = 'gray')
     xs[0].set_title('Image')
-    xs[1].imshow(bin_image1, cmap = 'gray')
+    xs[1].imshow(image1, cmap = 'gray')
     xs[1].set_title('Binary nc:{}'.format(len(cc_list)))
     for cc in cc_list :
         bbox = cc['bbox']

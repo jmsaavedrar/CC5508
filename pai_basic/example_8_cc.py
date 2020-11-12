@@ -11,16 +11,20 @@ import skimage.measure as measure
 import matplotlib.pyplot as plt
 import scipy.ndimage.morphology as morph 
 if __name__ == '__main__' :
-    filename ='../images/gray/rice.jpg'
+    #filename ='../images/gray/rice.jpg'
+    filename = '../images/gray/ten_coins.png'
     image=pai_io.imread(filename, as_gray = True)
     #image processing
     th_otsu = utils.get_threshold_otsu(image)
     bin_image = utils.threshold(image, th_otsu)
     cc_list = bw.get_ccomponents(bin_image)
+        
     cc_list = bw.remove_small_components(cc_list, 50)    
     bin_image1 = bw.cc2image(cc_list, image.shape)
     bin_image1 = morph.binary_fill_holes(bin_image1)
+
     labels, ncc = measure.label(bin_image1, return_num = True)
+    
     print('nc : {}'.format(ncc))
     fig, xs = plt.subplots(1,3)
     for i in range(3):
