@@ -9,10 +9,12 @@ import pai_io
 import numpy as np
 import utils
 import matplotlib.pyplot as plt
+import utils
 
 if __name__ == '__main__':
     #filename = '../images/color/rgb_cube.png' 
-    filename = '../images/color/fichas.jpg'
+    #filename = '../images/color/fichas.jpg'
+    filename = '/home/jsaavedr/Documents/Docencia/2020/CC5508/tareas/tarea3_2020/tarea3/im3.jpg'
     image = pai_io.imread(filename)
     print('shape: {}'.format(image.shape))
     im_red = image[:,:,0];
@@ -20,7 +22,7 @@ if __name__ == '__main__':
     im_blue = image[:,:,2];
     #yellow
     im_yellow = im_red.astype(np.float64) + im_green.astype(np.float64) - im_blue.astype(np.float64)
-    im_yellow = utils.to_uint8(im_yellow / (255.0 + 255.0))
+    im_yellow = utils.to_uint8(im_yellow / (255.0 + 255.0))    
     ##showing image
     fig, ax = plt.subplots(2,3)
     ax[0,1].imshow(image)
