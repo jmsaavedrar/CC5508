@@ -13,13 +13,14 @@ img2 = cv2.imread('../images/sift/scene.png',cv2.IMREAD_GRAYSCALE) # trainImage
 sift = cv2.SIFT_create()
 kp1, des1 = sift.detectAndCompute(img1, None)
 kp2, des2 = sift.detectAndCompute(img2, None)
-
+print(des1)
 # BFMatcher with default params
 bf = cv2.BFMatcher()
 matches = bf.match(des1,des2)
 matches = sorted(matches, key = lambda x:  x.distance)
-for mm in matches:
-    print('{} {}'.format(kp1[mm.queryIdx].pt, kp2[mm.trainIdx].pt))
+matches = matches[:40]
+# for mm in matches:
+#     print('{} {}'.format(kp1[mm.queryIdx].pt, kp2[mm.trainIdx].pt))
 img3 = cv2.drawMatches(img1, kp1, img2, kp2, matches, None, flags =2)
  
 plt.imshow(img3)
