@@ -7,12 +7,12 @@ import skimage.morphology as morph
 import skimage.filters as filters
 
 if __name__ == '__main__' :
-    #filename = '../images/gray/rice.jpg'
-    filename = '../images/gray/four_coins.png'    
+    filename = '../images/gray/rice.jpg'
+    #filename = '../images/gray/four_coins.png'    
     image = pai_io.imread(filename, as_gray = True)
-    #image_g = 255 - image
+    image = 255 - image
     image_g = filters.median(image, morph.disk(2))        
-    #image_g = morph.closing(image_g, morph.disk(13))
+    image_g = morph.closing(image_g, morph.disk(13))
     watershed = seg.watershed(image_g, watershed_line=True)
     image[watershed == 0] = 0    
     plt.imshow(image, cmap = 'gray')
