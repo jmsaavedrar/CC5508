@@ -19,13 +19,5 @@ if __name__ == '__main__' :
     for i in range(3) :        
             ax[i].set_axis_off()
     plt.show()
-#     A = np.array([[0,0,0,0,0],
-#                  [0,1,1,1,0],
-#                  [0,1,1,1,0],
-#                  [0,1,1,1,0],
-#                  [0,0,0,0,0]]
-#                  )
-#     B =np.array([[1,1,0]])
-#     C = morph.binary_dilation(A,B)
-#     print(C.astype(np.uint8))
-#     
+
+    
