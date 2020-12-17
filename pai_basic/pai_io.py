@@ -6,7 +6,7 @@ io functions
 '''
 import skimage.io as skio
 import numpy as np
-import pai_basic.utils
+import utils
 
 def imread(filename, as_gray = False):
     image = skio.imread(filename, as_gray = as_gray)

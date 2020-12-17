@@ -18,7 +18,8 @@ if __name__ == '__main__' :
     image_grad = utils.get_magnitude(image_g, np.array([[-1,0,1], [-2,0,2], [-1,0,1]]))#
     image_grad[image_grad<100] = 0         
     watershed = seg.watershed(image_grad, watershed_line=True)
-    watershed[watershed>1]=watershed[watershed>1] + 10    
+    print(np.max(watershed))
+    watershed[watershed>1]=watershed[watershed>1] + 10        
     fig, xs = plt.subplots(1,3)
     xs[0].imshow(image, cmap = 'gray')
     xs[0].set_axis_off()

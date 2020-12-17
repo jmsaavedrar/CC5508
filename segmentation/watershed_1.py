@@ -12,9 +12,9 @@ if __name__ == '__main__' :
     image = pai_io.imread(filename, as_gray = True)
     image = 255 - image
     image_g = filters.median(image, morph.disk(2))        
-    image_g = morph.closing(image_g, morph.disk(13))
+    #image_g = morph.closing(image_g, morph.disk(13))
     watershed = seg.watershed(image_g, watershed_line=True)
-    image[watershed == 0] = 0    
-    plt.imshow(image, cmap = 'gray')
+    image_g[watershed == 0] = 0    
+    plt.imshow(image_g, cmap = 'gray')
     plt.axis('off')    
     plt.show()
