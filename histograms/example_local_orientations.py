@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
  
 if __name__ == '__main__' :
-    #filename = '../images/gray/lion_gray.jpg'
-    filename = '../images/sketches/547.png'
+    filename = '../images/gray/lion_gray.jpg'
+    #filename = '../images/sketches/547.png'
     #filename = '/home/jsaavedr/Documents/Docencia/2020/CC5508/tareas/tarea2/circular/fp_circ_9.png'
     #filename = '../images/finger/105_4.tif'
     #filename = '/home/jsaavedr/Documents/Docencia/2020/CC5508/tareas/tarea2/arch/fp_arch.png'

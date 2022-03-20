@@ -12,8 +12,9 @@ import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
     #filename = '../images/gray/lion_gray.jpg'
-    filename = '../images/color/rgb.png'
-    image = pai_io.imread(filename)
+    #filename = '../images/color/rgb.png'
+    filename = '../images/color/fichas.jpg'
+    image = pai_io.imread(filename, as_gray = True)
     print(image) 
     print('shape: {} dtype: {}'.format(image.shape, image.dtype))
     ##showing image
