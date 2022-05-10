@@ -13,8 +13,8 @@ import utils
 
 if __name__ == '__main__':
     #filename = '../images/color/rgb_cube.png' 
-    #filename = '../images/color/fichas.jpg'
-    filename = '/home/jsaavedr/Documents/Docencia/2020/CC5508/tareas/tarea3_2020/tarea3/im3.jpg'
+    filename = '../images/color/fichas.jpg'
+    #filename = '/home/jsaavedr/Documents/Docencia/2020/CC5508/tareas/tarea3_2020/tarea3/im3.jpg'
     image = pai_io.imread(filename)
     print('shape: {}'.format(image.shape))
     im_red = image[:,:,0];

@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
     #filename = '../images/color/rgb_cube.png' 
-    filename = '../images/color/fichas.jpg'
+    #filename = '../images/color/fichas.jpg'
+    filename = '../images/color/fresh-fruits.jpg'
     image = pai_io.imread(filename)
     print('shape: {}'.format(image.shape))
     im_red = image[:,:,0]; #filas x cols x color

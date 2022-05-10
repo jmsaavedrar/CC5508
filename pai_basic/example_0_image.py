@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 
 
 if __name__ == '__main__':
-    #filename = '../images/gray/lion_gray.jpg'
-    filename = '../images/color/fichas.jpg'
+    filename = '../images/gray/lion_gray.jpg'
+    #filename = '../images/color/fichas.jpg'
     image = io.imread(filename, as_gray = 'True')
     print(image[10:50,10:20])   
     print('shape: {} dtype: {}'.format(image.shape, image.dtype))
