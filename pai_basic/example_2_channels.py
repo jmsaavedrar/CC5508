@@ -22,7 +22,7 @@ if __name__ == '__main__':
     im_blue = image[:,:,2];
     #yellow
     im_yellow = im_red.astype(np.float64) + im_green.astype(np.float64) - im_blue.astype(np.float64)
-    im_yellow = utils.to_uint8(im_yellow / (255.0 + 255.0))    
+    im_yellow = utils.to_uint8(im_yellow / (255.0+255.0))    
     ##showing image
     fig, ax = plt.subplots(2,3)
     ax[0,1].imshow(image)

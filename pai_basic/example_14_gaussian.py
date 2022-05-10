@@ -17,7 +17,8 @@ if __name__ == '__main__' :
     #filename ='../images/gray/ruido.tif'
     filename ='../images/gray/lenna_gray_noisy.png'
     image=pai_io.imread(filename, as_gray = True)
-    g_kernel = utils.get_gaussian2d(sigma = 2, radius = 6)    
+    g_kernel = utils.get_gaussian2d(sigma = 5, radius = 15)
+    print(g_kernel)    
     image_g = nd_filters.convolve(image, g_kernel, mode='constant', cval=0)
     print((g_kernel*100).astype(np.int32) / 100.0)
     fig, xs = plt.subplots(1,3)

@@ -14,6 +14,7 @@ if __name__ == '__main__':
     filename = '../images/color/fresh-fruits.jpg'
     image = pai_io.imread(filename)
     print('shape: {}'.format(image.shape))
+    #h x w x c
     im_red = image[:,:,0]; #filas x cols x color
     im_green = image[:,:,1];
     im_blue = image[:,:,2];    
